@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style= "background-color: #212121; color:#fff;">
+
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+    
+</body>
+<script>
+
+
+    // i need to add one more list item so we will make a function
+
+    function addLang(langName){
+       //steps :
+       // create an list item with langNam and then slecect ul and append 
+
+     const listItem =   document.createElement('li')
+     listItem.innerHTML=`${langName}`
+      
+     document.querySelector('.language').appendChild(listItem)
+    }
+
+    addLang('python')
+    addLang('typscriot')
+
+    function addLangOptimized(langName){
+        const listItem = document.createElement('li')
+        listItem.appendChild(document.createTextNode(langName))
+        // it little bit optimized
+        // as here we need not travaser whole tree 
+        // in inner html it travase whole tree
+        document.querySelector('.language').appendChild(listItem)
+
+    }
+    addLangOptimized('golang')
+    // how to edit value 
+      // 1 .slect which i wnated to edit 
+     const secondLang = document.querySelector('li:nth-child(2)')
+     console.log(secondLang);
+     const newLi= document.createElement('li')
+     newLi.textContent="mojo"
+    secondLang.replaceWith(newLi)
+    // how to remove ele
+    const lastChild= document.querySelector('li:last-child')
+    lastChild.remove()
+</script>
+</html>
