@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project  6</title>
+   
+    
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        button{
+            padding: auto;
+            outline: auto;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Start should change the background color every second </h1>
+
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+
+</body>
+<Script>
+
+
+    function  randomColor (){
+        const hex  = "123456789ABCDEF"
+        let color ="#"
+        for(let i =0; i<6; i++){
+            color+=hex[Math.floor(Math.random()*16)]
+     }
+        return color
+    }
+
+let intervalId;
+const changeBgColor= function(){
+   if(!intervalId){
+    // if(intervalid==null)
+    intervalId  =   setInterval(changeColor,1000);
+   } 
+
+   function changeColor (){
+    document.body.style.backgroundColor=randomColor()
+   }
+}
+const stopChnageColor = function(){
+    clearInterval(intervalId)
+    intervalId=null
+    // free memory 
+}
+
+const start =document.querySelector('.start').addEventListener('click',changeBgColor)
+const stop =document.querySelector('.stop').addEventListener('click',stopChnageColor)
+
+
+
+
+</Script>
+
+</html>

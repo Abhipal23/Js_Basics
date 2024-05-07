@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asyc</title>
+</head>
+<body>
+    <h1>hello </h1>
+    <button id="stop">stop</button>
+    <button id="start">start</button>
+    <style>
+        button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    </style>
+    
+</body>
+<script>
+
+    // setInterval(function(){
+    //     console.log("abhishek",Date.now);
+    // },1000)
+
+    let interval;
+
+    const sayDate = ()=>{
+        document.querySelector('h1').innerHTML="hi abhishek welcome"
+        console.log("hello user",Date.now);
+    }
+
+//    const interValId =   setInterval(sayDate,1000,"hello");
+
+   document.querySelector('#start').addEventListener('click',function(e){
+
+       interval= setInterval(sayDate,2000)
+               
+   })
+   document.querySelector('#stop').addEventListener('click',function(e){
+
+    clearInterval(interval)
+    document.querySelector('h1').innerHTML="hello"
+       
+})
+
+
+
+ 
+
+
+</script>
+</html>

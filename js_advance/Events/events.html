@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick= function(){
+    //     alert('owl clicked')
+
+    //      // insted of onclick we have to use eventListner 
+    //      // onclick give less feature compare to eventListner
+    //      // as eventListner give propogation 
+    // }
+
+    document.getElementById('owl').addEventListener('click',()=>alert("owl clicked"),false);
+
+    // eventListner takes 2 paran (event,function,boolean) by default it is false so, we need not write false 
+
+    // event object 
+
+    // importenat event:
+     // type,timeStamp,defaultPrevented,target
+    // toElement ,sourceElement,
+    // currentTarget,
+    // clientpost,offset,postion related,
+    // alt key,ctlkey ...keycode
+
+    // event propogation: Event Propagation determines in which order the elements receive the event.
+    //event propogation has two ways to handler event propogation
+          //1:event bubbling, : mostly uesed by default represented by false 
+          //2:event capturing  : true 
+
+          // lets see how these two works
+
+          document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul")
+    },false)
+   
+       
+
+    document.getElementById('river').addEventListener('click',function(e){
+       // console.log(e)
+       console.log('clciked on river')
+
+       // bubbling up first child ->parent ... 
+       // as bubble formed chote se bade ...
+       // when we click on river 
+          // console.log('clciked on river') first run
+          //   console.log("clicked inside the ul") then it will run 
+
+
+
+          // where as capturing just opposite :top to bottoum 
+         // console.log("clicked inside the ul") first this 
+          // console.log('clciked on river') then tis
+          // make sure insted false nake true 
+
+
+    },false)
+
+
+    // i don't want event propogation just run inner event don't wanted to propogate to parent 
+
+       document.getElementById('owl').addEventListener('click',function(e){
+        console.log("clicked owl")
+        e.stopPropagation()
+
+    },false)
+
+
+    // when i clicked on link,i don't wnated to it opens link
+    // preventDefault: change default behavour 
+
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+
+    },false)
+
+
+</script>
+</html>

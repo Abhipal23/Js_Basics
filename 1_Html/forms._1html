@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms </title>
+    
+</head>
+<body>
+    <p>forms are used to take input from user and send to server 
+
+    </p>
+    <form action="#" method="GET">
+        <label for="fname">First Name </label>
+        <input type="text" name="" id="fname" placeholder="firstName">
+        <!-- for is used to map label and input filed or bind them  it tell this label is assocaited with which inpout -->
+        <!-- recommended use label tag insted of placeholder -->
+  <br>
+  <br>
+        <label for="lname">Last Name</label>
+        <input type="text" name="" id="lname" placeholder="lastName">
+        <br>
+        <br> 
+
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

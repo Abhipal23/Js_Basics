@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asyc</title>
+</head>
+<body>
+    <h1>hello </h1>
+    <button id="stop">cancel</button>
+</body>
+<script>
+   // setTimeout(): not core js is part of browser
+//    setTimeout(function(){
+//     console.log("abhishek");
+//    },4000)
+   // handler: call back functio 
+   // it takes two agruments 1:call backfunction/ function's refernce (make sure not to execute ),duration...
+   // execute one time after given time
+
+const changeText = function(){
+    document.querySelector('h1').innerHTML="hello abhishek"
+
+}
+
+ const changeMe = setTimeout(changeText,4000)
+// here in set time timeout we have given reference to function as handler 
+
+// consider a situation i wanted to stop handler due to situtaion i don;t wanted to execute 
+
+//clearTimeout(changeMe)// it require reference that which time out you wnated to clear 
+
+// but if we clerTimeOiut then what is benifit of setTimeOut 
+
+// set this on any event 
+document.querySelector('#stop').addEventListener('click',function(e){
+    clearTimeout(changeMe)
+    console.log("stopped");
+
+})
+
+</script>
+</html>
