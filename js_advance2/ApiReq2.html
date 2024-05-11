@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open profile</title>
+</head>
+<body>
+    <button id="profileButton">Open Profile</button>
+</body>
+<script>
+    let  data ;
+    const url ='https://api.github.com/users/hiteshchoudhary'
+    const req=  new XMLHttpRequest()
+    req.open('GET',url)
+    req.send()
+    req.onreadystatechange =function(){
+        console.log(req.readyState)
+        if(req.readyState===4){
+            // many of cases we get response in string ... we required as an object 
+            data =  JSON.parse(this.responseText)
+          console.log(data.folloers);
+         // console.log(data.foll);
+        }
+
+    };
+    console.log( typeof data);
+
+   
+</script>
+</html>

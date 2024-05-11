@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    
+    <button id="profileButton">Open Profile</button>
+    
+</body>
+<script>
+    // we will se how to send http request using ajax xml
+   // XMLHttpRequest --class we need its object and by which we can impliment many feature 
+
+     const url ='https://api.github.com/users/hiteshchoudhary'
+     const xhr = new XMLHttpRequest ();
+     xhr.open('GET',url)
+     // lets see wheather state changes or not 
+    // console.log (xhr.readyState)  // it changes from 0 to 1 state 
+
+     // we need to call open
+
+     xhr.send()
+
+     // to keep track of state 
+     xhr.onreadystatechange =function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState===4){
+            // many of cases we get response in string ... we required as an object 
+          const data =  JSON.parse(this.responseText)
+          console.log(data.folloers);
+         // console.log(data.foll);
+        }
+
+    };
+
+    
+
+
+
+</script>
+</html>
